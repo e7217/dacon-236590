@@ -1,0 +1,14 @@
+artifact_uri: file:///home/e7217/projects/dacon-smartmh-02/experiments/mlruns/848551032509700127/dd1fc5c6595d4c34bf0c2f49e267984b/artifacts
+end_time: 1758809520973
+entry_point_name: ''
+experiment_id: '848551032509700127'
+lifecycle_stage: active
+run_id: dd1fc5c6595d4c34bf0c2f49e267984b
+run_name: shap_interpretability_analysis
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758809519854
+status: 3
+tags: []
+user_id: e7217

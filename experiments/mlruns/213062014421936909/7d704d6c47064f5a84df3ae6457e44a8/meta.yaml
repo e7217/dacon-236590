@@ -1,0 +1,14 @@
+artifact_uri: file:///home/e7217/projects/dacon-smartmh-02/experiments/mlruns/213062014421936909/7d704d6c47064f5a84df3ae6457e44a8/artifacts
+end_time: 1758808574473
+entry_point_name: ''
+experiment_id: '213062014421936909'
+lifecycle_stage: active
+run_id: 7d704d6c47064f5a84df3ae6457e44a8
+run_name: class_performance_analysis
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758808511204
+status: 3
+tags: []
+user_id: e7217

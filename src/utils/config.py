@@ -169,13 +169,14 @@ class Config:
         """프로젝트 주요 경로들 반환"""
         return {
             'project_root': self.project_root,
-            'data_dir': self.project_root / self.get('data.processed_dir', 'data'),
+            'data': self.project_root / self.get('data.processed_dir', 'data'),
             'train_path': self.project_root / self.get('data.train_path'),
             'test_path': self.project_root / self.get('data.test_path'),
             'experiments_dir': self.project_root / self.get('tracking.experiment_dir', 'experiments'),
             'config_dir': self.config_path.parent,
             'answers_dir': self.project_root / 'answers',
-            'src_dir': self.project_root / 'src'
+            'src_dir': self.project_root / 'src',
+            'plots': self.project_root / self.get('tracking.experiment_dir', 'experiments') / 'plots'
         }
 
     def create_experiment_name(self, prefix: str = "exp") -> str:
