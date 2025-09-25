@@ -1,0 +1,14 @@
+artifact_uri: file:///home/e7217/projects/dacon-smartmh-02/experiments/mlruns/517288406752070701/46e67b541c6a4db48389847714480729/artifacts
+end_time: 1758805495721
+entry_point_name: ''
+experiment_id: '517288406752070701'
+lifecycle_stage: active
+run_id: 46e67b541c6a4db48389847714480729
+run_name: validation_test
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758805495710
+status: 3
+tags: []
+user_id: e7217

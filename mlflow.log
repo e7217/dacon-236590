@@ -1,0 +1,31 @@
+/home/e7217/projects/dacon-smartmh-02/.venv/lib/python3.12/site-packages/pydantic/_internal/_config.py:323: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+  warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+2025/09/25 22:14:45 ERROR mlflow.cli: Error initializing backend store
+2025/09/25 22:14:45 ERROR mlflow.cli: [Errno 13] Permission denied: '/mlruns'
+Traceback (most recent call last):
+  File "/home/e7217/projects/dacon-smartmh-02/.venv/lib/python3.12/site-packages/mlflow/cli/__init__.py", line 484, in server
+    initialize_backend_stores(backend_store_uri, registry_store_uri, default_artifact_root)
+  File "/home/e7217/projects/dacon-smartmh-02/.venv/lib/python3.12/site-packages/mlflow/server/handlers.py", line 474, in initialize_backend_stores
+    _get_tracking_store(backend_store_uri, default_artifact_root)
+  File "/home/e7217/projects/dacon-smartmh-02/.venv/lib/python3.12/site-packages/mlflow/server/handlers.py", line 449, in _get_tracking_store
+    _tracking_store = _tracking_store_registry.get_store(store_uri, artifact_root)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/e7217/projects/dacon-smartmh-02/.venv/lib/python3.12/site-packages/mlflow/tracking/_tracking_service/registry.py", line 45, in get_store
+    return self._get_store_with_resolved_uri(resolved_store_uri, artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/e7217/projects/dacon-smartmh-02/.venv/lib/python3.12/site-packages/mlflow/tracking/_tracking_service/registry.py", line 56, in _get_store_with_resolved_uri
+    return builder(store_uri=resolved_store_uri, artifact_uri=artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/e7217/projects/dacon-smartmh-02/.venv/lib/python3.12/site-packages/mlflow/server/handlers.py", line 241, in _get_file_store
+    return FileStore(store_uri, artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/e7217/projects/dacon-smartmh-02/.venv/lib/python3.12/site-packages/mlflow/store/tracking/file_store.py", line 225, in __init__
+    self._create_default_experiment()
+  File "/home/e7217/projects/dacon-smartmh-02/.venv/lib/python3.12/site-packages/mlflow/store/tracking/file_store.py", line 231, in _create_default_experiment
+    mkdir(self.root_directory)
+  File "/home/e7217/projects/dacon-smartmh-02/.venv/lib/python3.12/site-packages/mlflow/utils/file_utils.py", line 209, in mkdir
+    raise e
+  File "/home/e7217/projects/dacon-smartmh-02/.venv/lib/python3.12/site-packages/mlflow/utils/file_utils.py", line 206, in mkdir
+    os.makedirs(target, exist_ok=True)
+  File "<frozen os>", line 225, in makedirs
+PermissionError: [Errno 13] Permission denied: '/mlruns'

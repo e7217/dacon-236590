@@ -1,0 +1,25 @@
+2025-09-25 22:19:39,040 INFO    MainThread:197391 [wandb_setup.py:_flush():81] Current SDK version is 0.22.0
+2025-09-25 22:19:39,040 INFO    MainThread:197391 [wandb_setup.py:_flush():81] Configure stats pid to 197391
+2025-09-25 22:19:39,040 INFO    MainThread:197391 [wandb_setup.py:_flush():81] Loading settings from /home/e7217/.config/wandb/settings
+2025-09-25 22:19:39,040 INFO    MainThread:197391 [wandb_setup.py:_flush():81] Loading settings from /home/e7217/projects/dacon-smartmh-02/wandb/settings
+2025-09-25 22:19:39,040 INFO    MainThread:197391 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2025-09-25 22:19:39,040 INFO    MainThread:197391 [wandb_init.py:setup_run_log_directory():686] Logging user logs to experiments/wandb/offline-run-20250925_221939-u3egnczw/logs/debug.log
+2025-09-25 22:19:39,040 INFO    MainThread:197391 [wandb_init.py:setup_run_log_directory():687] Logging internal logs to experiments/wandb/offline-run-20250925_221939-u3egnczw/logs/debug-internal.log
+2025-09-25 22:19:39,040 INFO    MainThread:197391 [wandb_init.py:init():813] calling init triggers
+2025-09-25 22:19:39,040 INFO    MainThread:197391 [wandb_init.py:init():818] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-09-25 22:19:39,040 INFO    MainThread:197391 [wandb_init.py:init():861] starting backend
+2025-09-25 22:19:39,245 INFO    MainThread:197391 [wandb_init.py:init():864] sending inform_init request
+2025-09-25 22:19:39,246 INFO    MainThread:197391 [wandb_init.py:init():872] backend started and connected
+2025-09-25 22:19:39,247 INFO    MainThread:197391 [wandb_init.py:init():942] updated telemetry
+2025-09-25 22:19:39,248 INFO    MainThread:197391 [wandb_init.py:init():966] communicating run to backend with 90.0 second timeout
+2025-09-25 22:19:39,352 INFO    MainThread:197391 [wandb_init.py:init():1017] starting run threads in backend
+2025-09-25 22:19:39,432 INFO    MainThread:197391 [wandb_run.py:_console_start():2506] atexit reg
+2025-09-25 22:19:39,432 INFO    MainThread:197391 [wandb_run.py:_redirect():2354] redirect: wrap_raw
+2025-09-25 22:19:39,432 INFO    MainThread:197391 [wandb_run.py:_redirect():2423] Wrapping output streams.
+2025-09-25 22:19:39,432 INFO    MainThread:197391 [wandb_run.py:_redirect():2446] Redirects installed.
+2025-09-25 22:19:39,433 INFO    MainThread:197391 [wandb_init.py:init():1057] run started, returning control to user process
+2025-09-25 22:19:39,439 INFO    MainThread:197391 [wandb_run.py:_config_callback():1392] config_cb None None {'analysis_type': 'adversarial_validation', 'task': 'T004', 'purpose': 'domain_shift_detection'}
+2025-09-25 22:19:43,239 INFO    MainThread:197391 [wandb_run.py:_config_callback():1392] config_cb None None {'best_model': 'LogisticRegression', 'train_samples': 800, 'test_samples': 200, 'n_features': 20, 'recommended_cv': 'StratifiedKFold with increased folds (10+)'}
+2025-09-25 22:19:45,276 INFO    wandb-AsyncioManager-main:197391 [service_client.py:_forward_responses():84] Reached EOF.
+2025-09-25 22:19:45,276 INFO    wandb-AsyncioManager-main:197391 [mailbox.py:close():137] Closing mailbox, abandoning 0 handles.

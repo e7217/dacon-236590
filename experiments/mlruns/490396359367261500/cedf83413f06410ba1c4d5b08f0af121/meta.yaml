@@ -1,0 +1,14 @@
+artifact_uri: file:///home/e7217/projects/dacon-smartmh-02/experiments/mlruns/490396359367261500/cedf83413f06410ba1c4d5b08f0af121/artifacts
+end_time: 1758805775394
+entry_point_name: ''
+experiment_id: '490396359367261500'
+lifecycle_stage: active
+run_id: cedf83413f06410ba1c4d5b08f0af121
+run_name: performance_gap_comprehensive
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758805765430
+status: 3
+tags: []
+user_id: e7217

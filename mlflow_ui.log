@@ -1,0 +1,107 @@
+/home/e7217/projects/dacon-smartmh-02/.venv/lib/python3.12/site-packages/pydantic/_internal/_config.py:323: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+  warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+INFO:     Uvicorn running on http://0.0.0.0:5000 (Press CTRL+C to quit)
+INFO:     Started parent process [196617]
+INFO:     Started server process [196631]
+INFO:     Started server process [196630]
+INFO:     Waiting for application startup.
+INFO:     Waiting for application startup.
+INFO:     Started server process [196632]
+INFO:     Application startup complete.
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Application startup complete.
+INFO:     Started server process [196629]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:35428 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35428 - "GET /static-files/static/js/main.3d375fe3.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35426 - "GET /static-files/static/css/main.f1270cf7.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35428 - "GET /static-files/static/js/9478.cbf55ef3.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35428 - "GET /static-files/static/js/618.eccaaac3.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35426 - "GET /static-files/static/css/3044.41bf106c.chunk.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35432 - "GET /static-files/static/js/3044.8a4b59f2.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35428 - "GET /ajax-api/2.0/mlflow/experiments/search?max_results=25&order_by=last_update_time+DESC HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35428 - "GET /static-files/manifest.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35432 - "GET /static-files/favicon.ico HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36376 - "GET /static-files/static/css/301.ca66900f.chunk.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36386 - "GET /static-files/static/js/3464.b74283ee.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36402 - "GET /static-files/static/js/301.78007945.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36386 - "GET /ajax-api/2.0/mlflow/registered-models/search?filter=&max_results=25&order_by=name+ASC HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36386 - "GET /static-files/static/js/6462.1a6a178d.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36402 - "GET /static-files/static/js/6742.6cc40d4e.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36386 - "GET /ajax-api/2.0/mlflow/registered-models/search?filter=tags.%60mlflow.prompt.is_prompt%60+%3D+%27true%27 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36386 - "GET /ajax-api/2.0/mlflow/experiments/search?max_results=25&order_by=last_update_time+DESC HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36386 - "GET /ajax-api/2.0/mlflow/registered-models/search?filter=tags.%60mlflow.prompt.is_prompt%60+%3D+%27true%27 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36386 - "GET /ajax-api/2.0/mlflow/experiments/search?max_results=25&order_by=last_update_time+DESC HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36386 - "GET /ajax-api/2.0/mlflow/experiments/search?max_results=25&order_by=last_update_time+DESC HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "GET /static-files/static/js/7027.6961c163.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "GET /static-files/static/css/experimentPage.b886c467.chunk.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "GET /static-files/static/js/2079.456be601.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "GET /static-files/static/js/4175.8b841372.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "GET /static-files/static/js/4153.af01f731.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "GET /static-files/static/js/5879.8c03c3a7.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "GET /static-files/static/js/7816.b5c1abd2.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55376 - "GET /static-files/static/js/2231.5a7fbe5e.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55390 - "GET /static-files/static/js/2134.88c9cfcf.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55376 - "GET /static-files/static/js/1107.c4dd9cf4.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55400 - "GET /static-files/static/js/2121.02d55e17.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55424 - "GET /static-files/static/js/3067.3b0c5ce8.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55412 - "GET /static-files/static/js/1240.bbfffe0d.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55390 - "GET /static-files/static/js/2587.5e59ba3b.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "GET /static-files/static/js/9721.bf5e859c.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55376 - "GET /static-files/static/js/3428.60ccdc4b.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55400 - "GET /static-files/static/js/5813.33361779.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55390 - "GET /static-files/static/js/9640.bcf803af.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55412 - "GET /static-files/static/js/3285.a7b8bac8.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55424 - "GET /static-files/static/js/590.b19ebea6.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55400 - "GET /static-files/static/js/7715.1060ceb2.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "GET /static-files/static/js/3270.96fc46a3.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55376 - "GET /static-files/static/js/experimentPage.4d96c43c.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55376 - "POST /graphql HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55376 - "GET /static-files/static/css/505.1c6f09d6.chunk.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "GET /static-files/static/js/505.b78801d2.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55400 - "GET /ajax-api/2.0/mlflow/traces?experiment_ids=490396359367261500&order_by=timestamp_ms%20DESC&max_results=1&filter= HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55390 - "POST /ajax-api/2.0/mlflow/runs/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "POST /ajax-api/2.0/mlflow/experiments/search-datasets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55376 - "GET /static-files/static/js/2402.1c147bbf.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55390 - "GET /static-files/static/css/1570.21d39143.chunk.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55400 - "GET /static-files/static/js/1570.e6a5ccf7.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55424 - "GET /ajax-api/2.0/mlflow/gateway-proxy?gateway_path=api%2F2.0%2Fendpoints%2F HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "POST /ajax-api/2.0/mlflow/logged-models/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55412 - "POST /ajax-api/2.0/mlflow/runs/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55424 - "POST /ajax-api/2.0/mlflow/runs/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "GET /ajax-api/2.0/mlflow/gateway-proxy?gateway_path=api%2F2.0%2Fendpoints%2F HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "POST /ajax-api/2.0/mlflow/experiments/set-experiment-tag HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36406 - "POST /graphql HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50516 - "GET /static-files/static/js/47.c3fdc3f4.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50530 - "GET /static-files/static/css/8655.ad0feb46.chunk.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50546 - "GET /static-files/static/js/2397.4de77c6d.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50554 - "GET /static-files/static/js/7453.2ee01df4.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50554 - "POST /ajax-api/2.0/mlflow/logged-models/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50554 - "GET /static-files/static/media/versions-empty.3e2d8bb8c5b8ddd0a19a34890b36ad41.svg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50554 - "GET /static-files/static/js/4642.11d700c0.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50554 - "POST /ajax-api/3.0/mlflow/traces/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50546 - "POST /ajax-api/3.0/mlflow/traces/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50546 - "POST /ajax-api/3.0/mlflow/traces/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50546 - "POST /ajax-api/3.0/mlflow/traces/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50568 - "POST /ajax-api/2.0/mlflow/experiments/search-datasets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50568 - "POST /ajax-api/2.0/mlflow/logged-models/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50568 - "GET /ajax-api/2.0/mlflow/gateway-proxy?gateway_path=api%2F2.0%2Fendpoints%2F HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50568 - "POST /ajax-api/2.0/mlflow/runs/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50568 - "GET /static-files/static/js/2633.610c7275.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39362 - "GET /static-files/static/js/701.e7dbd4d1.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39364 - "GET /static-files/static/js/2586.e6839fb7.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39364 - "GET /static-files/static/css/8455.3cd9f5ca.chunk.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39362 - "GET /static-files/static/js/7364.b91e87c1.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39364 - "GET /static-files/static/js/8455.d8d24bfc.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39364 - "GET /ajax-api/2.0/mlflow/model-versions/search?filter=tags.%60mlflow.prompt.is_prompt%60+%3D+%27true%27+AND+tags.%60mlflow.prompt.run_ids%60+ILIKE+%22%25cedf83413f06410ba1c4d5b08f0af121%25%22 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39362 - "GET /ajax-api/2.0/mlflow/model-versions/search?filter=run_id%3D%27cedf83413f06410ba1c4d5b08f0af121%27 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59518 - "GET /ajax-api/2.0/mlflow/model-versions/search?filter=tags.%60mlflow.prompt.is_prompt%60+%3D+%27true%27+AND+tags.%60mlflow.prompt.run_ids%60+ILIKE+%22%25cedf83413f06410ba1c4d5b08f0af121%25%22 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59528 - "GET /static-files/static/js/4850.b10d3c24.chunk.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59534 - "POST /ajax-api/3.0/mlflow/traces/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59534 - "POST /ajax-api/2.0/mlflow/runs/search HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59534 - "GET /ajax-api/2.0/mlflow/artifacts/list?run_uuid=cedf83413f06410ba1c4d5b08f0af121 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59534 - "GET /static-files/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59534 - "GET /get-artifact?path=temp_learning_curves.png&run_uuid=cedf83413f06410ba1c4d5b08f0af121 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59534 - "GET /get-artifact?path=temp_validation_curve_n_estimators.png&run_uuid=cedf83413f06410ba1c4d5b08f0af121 HTTP/1.1" 200 OK

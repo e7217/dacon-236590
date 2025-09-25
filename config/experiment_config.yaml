@@ -1,0 +1,34 @@
+data:
+  features_dir: data/features
+  processed_dir: data/processed
+  sample_submission_path: data/open/sample_submission.csv
+  test_path: data/open/test.csv
+  train_path: data/open/train.csv
+models:
+  cv_folds: 5
+  random_seed: 42
+  shuffle: true
+  stratify: true
+  test_size: 0.2
+optimization:
+  n_jobs: -1
+  n_trials: 100
+  random_state: 42
+  timeout: 3600
+output:
+  log_level: INFO
+  plot_results: true
+  save_intermediate: true
+  verbose: true
+targets:
+  current_score: 0.67596
+  improvement_needed: 0.22404
+  metric: macro_f1
+  target_score: 0.9
+tracking:
+  experiment_dir: experiments
+  project_name: dacon-smartmh-02
+  save_models: true
+  save_plots: true
+  use_mlflow: true
+  use_wandb: true

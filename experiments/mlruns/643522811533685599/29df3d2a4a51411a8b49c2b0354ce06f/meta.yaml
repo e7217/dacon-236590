@@ -1,0 +1,14 @@
+artifact_uri: file:///home/e7217/projects/dacon-smartmh-02/experiments/mlruns/643522811533685599/29df3d2a4a51411a8b49c2b0354ce06f/artifacts
+end_time: 1758806551040
+entry_point_name: ''
+experiment_id: '643522811533685599'
+lifecycle_stage: active
+run_id: 29df3d2a4a51411a8b49c2b0354ce06f
+run_name: cv_strategy_comparison
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758806542922
+status: 3
+tags: []
+user_id: e7217

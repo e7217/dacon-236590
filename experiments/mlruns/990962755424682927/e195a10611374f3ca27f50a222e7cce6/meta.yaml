@@ -1,0 +1,14 @@
+artifact_uri: file:///home/e7217/projects/dacon-smartmh-02/experiments/mlruns/990962755424682927/e195a10611374f3ca27f50a222e7cce6/artifacts
+end_time: 1758806802015
+entry_point_name: ''
+experiment_id: '990962755424682927'
+lifecycle_stage: active
+run_id: e195a10611374f3ca27f50a222e7cce6
+run_name: comprehensive_overfitting_analysis
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758806767655
+status: 3
+tags: []
+user_id: e7217

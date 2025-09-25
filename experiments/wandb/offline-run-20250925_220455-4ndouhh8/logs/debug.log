@@ -1,0 +1,27 @@
+2025-09-25 22:04:55,222 INFO    MainThread:185996 [wandb_setup.py:_flush():81] Current SDK version is 0.22.0
+2025-09-25 22:04:55,223 INFO    MainThread:185996 [wandb_setup.py:_flush():81] Configure stats pid to 185996
+2025-09-25 22:04:55,223 INFO    MainThread:185996 [wandb_setup.py:_flush():81] Loading settings from /home/e7217/.config/wandb/settings
+2025-09-25 22:04:55,223 INFO    MainThread:185996 [wandb_setup.py:_flush():81] Loading settings from /home/e7217/projects/dacon-smartmh-02/wandb/settings
+2025-09-25 22:04:55,223 INFO    MainThread:185996 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2025-09-25 22:04:55,223 INFO    MainThread:185996 [wandb_init.py:setup_run_log_directory():686] Logging user logs to experiments/wandb/offline-run-20250925_220455-4ndouhh8/logs/debug.log
+2025-09-25 22:04:55,223 INFO    MainThread:185996 [wandb_init.py:setup_run_log_directory():687] Logging internal logs to experiments/wandb/offline-run-20250925_220455-4ndouhh8/logs/debug-internal.log
+2025-09-25 22:04:55,223 INFO    MainThread:185996 [wandb_init.py:init():813] calling init triggers
+2025-09-25 22:04:55,223 INFO    MainThread:185996 [wandb_init.py:init():818] wandb.init called with sweep_config: {}
+config: {'_wandb': {}}
+2025-09-25 22:04:55,223 INFO    MainThread:185996 [wandb_init.py:init():861] starting backend
+2025-09-25 22:04:55,426 INFO    MainThread:185996 [wandb_init.py:init():864] sending inform_init request
+2025-09-25 22:04:55,428 INFO    MainThread:185996 [wandb_init.py:init():872] backend started and connected
+2025-09-25 22:04:55,428 INFO    MainThread:185996 [wandb_init.py:init():942] updated telemetry
+2025-09-25 22:04:55,429 INFO    MainThread:185996 [wandb_init.py:init():966] communicating run to backend with 90.0 second timeout
+2025-09-25 22:04:55,534 INFO    MainThread:185996 [wandb_init.py:init():1017] starting run threads in backend
+2025-09-25 22:04:55,605 INFO    MainThread:185996 [wandb_run.py:_console_start():2506] atexit reg
+2025-09-25 22:04:55,605 INFO    MainThread:185996 [wandb_run.py:_redirect():2354] redirect: wrap_raw
+2025-09-25 22:04:55,605 INFO    MainThread:185996 [wandb_run.py:_redirect():2423] Wrapping output streams.
+2025-09-25 22:04:55,605 INFO    MainThread:185996 [wandb_run.py:_redirect():2446] Redirects installed.
+2025-09-25 22:04:55,606 INFO    MainThread:185996 [wandb_init.py:init():1057] run started, returning control to user process
+2025-09-25 22:04:55,714 INFO    MainThread:185996 [wandb_run.py:_config_callback():1392] config_cb None None {'task': 'T002', 'type': 'setup_validation'}
+2025-09-25 22:04:55,715 INFO    MainThread:185996 [wandb_run.py:_config_callback():1392] config_cb None None {'setup_date': '2025-09-25', 'task_id': 'T002', 'random_seed': 42, 'cv_folds': 5, 'target_score': 0.9}
+2025-09-25 22:04:55,721 INFO    MainThread:185996 [wandb_run.py:_finish():2272] finishing run dacon-smartmh-02/4ndouhh8
+2025-09-25 22:04:55,721 INFO    MainThread:185996 [wandb_run.py:_atexit_cleanup():2471] got exitcode: 0
+2025-09-25 22:04:55,721 INFO    MainThread:185996 [wandb_run.py:_restore():2453] restore
+2025-09-25 22:04:55,721 INFO    MainThread:185996 [wandb_run.py:_restore():2459] restore done

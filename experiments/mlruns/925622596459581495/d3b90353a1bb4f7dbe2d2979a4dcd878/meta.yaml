@@ -1,0 +1,14 @@
+artifact_uri: file:///home/e7217/projects/dacon-smartmh-02/experiments/mlruns/925622596459581495/d3b90353a1bb4f7dbe2d2979a4dcd878/artifacts
+end_time: 1758806384959
+entry_point_name: ''
+experiment_id: '925622596459581495'
+lifecycle_stage: active
+run_id: d3b90353a1bb4f7dbe2d2979a4dcd878
+run_name: adversarial_validation_analysis
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758806379436
+status: 3
+tags: []
+user_id: e7217
