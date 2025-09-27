@@ -10,3 +10,10 @@ wheels/
 .venv
 
 .claude/
+
+# Model artifacts and large binary files
+*.pkl
+**/processed_data*.pkl
+**/preprocessor*.pkl
+models/*.pkl
+data/processed/*.pkl

@@ -9,7 +9,7 @@
 1. Load feature spec from Input path
    → If not found: ERROR "No feature spec at {path}"
 2. Fill Technical Context (scan for NEEDS CLARIFICATION)
-   → Detect Project Type from context (web=frontend+backend, mobile=app+api)
+   → Detect Project Type from file system structure or context (web=frontend+backend, mobile=app+api)
    → Set Structure Decision based on project type
 3. Fill the Constitution Check section based on the content of the constitution document.
 4. Evaluate Constitution Check section below
@@ -47,29 +47,14 @@
 ## Constitution Check
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-**데이터 기반 분석 (Data-Driven Analysis)**:
-- [ ] 모든 모델링 결정이 검증 증거로 뒷받침되는가
-- [ ] 고급 기법 전에 베이스라인이 설정되었는가
-- [ ] 교차검증 전략이 적절히 정의되었는가
+**Constitutional Principles Compliance:**
+- [ ] **Jupyter Notebook-First**: Analysis implemented in .ipynb files organized by stages
+- [ ] **Educational Clarity**: Explanations written for 10-year-old understanding level
+- [ ] **Performance-First**: Decisions prioritize accuracy/performance metrics
+- [ ] **Research-Driven**: Recent papers (2023-2025) and techniques incorporated
+- [ ] **Iterative Reflection**: Each stage includes "what we learned" and "how to improve" sections
 
-**문서화 우선 (Documentation-First)**:
-- [ ] 명확한 학습 목표로 분석 계획이 문서화되었는가
-- [ ] `/answers` 폴더의 챕터 구성이 계획되었는가
-- [ ] 의사결정 근거 프레임워크가 확립되었는가
-
-**경쟁 우수성 (Competitive Excellence)**:
-- [ ] 기법 선택을 위한 최신 문헌 검토가 계획되었는가
-- [ ] 성능 벤치마킹 전략이 정의되었는가
-- [ ] Macro F1-score 최적화 접근법이 개략되었는가
-
-**지속적 학습 & 재현 가능한 연구**:
-- [ ] 학습 결과 추적 방법론이 정의되었는가
-- [ ] 재현성 요구사항(시드, 버전)이 계획되었는가
-- [ ] 지식 포착 프로세스가 확립되었는가
-
-**데이터 분석 집중**:
-- [ ] 핵심 활동이 데이터 분석에만 집중되었는가 (API/웹서비스 제외)
-- [ ] 결과물이 분석 보고서와 모델 성능에 초점을 맞췄는가
+*Note: For data analysis projects, traditional software architecture principles may not apply. Focus on analysis workflow, documentation quality, and performance optimization.*
 
 ## Project Structure
 
@@ -85,8 +70,14 @@ specs/[###-feature]/
 ```
 
 ### Source Code (repository root)
+<!--
+  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
+  for this feature. Delete unused options and expand the chosen structure with
+  real paths (e.g., apps/admin, packages/something). The delivered plan must
+  not include Option labels.
+-->
 ```
-# Option 1: Single project (DEFAULT)
+# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
 src/
 ├── models/
 ├── services/
@@ -98,7 +89,7 @@ tests/
 ├── integration/
 └── unit/
 
-# Option 2: Web application (when "frontend" + "backend" detected)
+# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
 backend/
 ├── src/
 │   ├── models/
@@ -113,15 +104,16 @@ frontend/
 │   └── services/
 └── tests/
 
-# Option 3: Mobile + API (when "iOS/Android" detected)
+# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
 api/
 └── [same as backend above]
 
 ios/ or android/
-└── [platform-specific structure]
+└── [platform-specific structure: feature modules, UI flows, platform tests]
 ```
 
-**Structure Decision**: [DEFAULT to Option 1 unless Technical Context indicates web/mobile app]
+**Structure Decision**: [Document the selected structure and reference the real
+directories captured above]
 
 ## Phase 0: Outline & Research
 1. **Extract unknowns from Technical Context** above:
@@ -231,4 +223,4 @@ ios/ or android/
 - [ ] Complexity deviations documented
 
 ---
-*Based on Constitution v1.1.0 - See `.specify/memory/constitution.md`*
+*Based on Constitution v2.1.1 - See `/memory/constitution.md`*
