@@ -36,7 +36,7 @@
 ## Phase 1: 성능 진단 및 분석 (1-2일)
 
 ### Phase 1.1: 환경 및 도구 설정
-- [ ] T001 [P] 고급 ML 라이브러리 설치 (requirements.txt 업데이트)
+- [ ] T001 [P] 고급 ML 라이브러리 설치 (pyproject.toml 업데이트)
 - [ ] T002 [P] 실험 추적 환경 설정 (MLflow/WandB 설정)
 - [ ] T003 [P] 성능 진단 디렉토리 구조 생성 (src/diagnosis/, tests/diagnosis/)
 

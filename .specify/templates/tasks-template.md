@@ -46,51 +46,49 @@
 - [ ] T001 Create project structure per implementation plan
 - [ ] T002 Initialize [language] project with [framework] dependencies
 - [ ] T003 [P] Configure linting and formatting tools
-- [ ] T004 [P] Setup documentation structure in `/answers` folder per constitution
-- [ ] T005 [P] Initialize experiment tracking and reproducibility framework
 
-## Phase 3.2: 데이터 분석 검증 (Data Analysis Validation) ⚠️ MUST COMPLETE BEFORE 3.3
-**중요: 데이터 분석 테스트는 구현 전에 작성되고 실패해야 함**
-- [ ] T006 [P] 데이터 로딩 및 전처리 테스트 in tests/test_data_loading.py
-- [ ] T007 [P] 특성 엔지니어링 검증 테스트 in tests/test_feature_engineering.py
-- [ ] T008 [P] 모델 학습 파이프라인 테스트 in tests/test_model_training.py
-- [ ] T009 [P] 성능 평가 및 검증 테스트 in tests/test_evaluation.py
+## Phase 3.2: Tests First (TDD) ⚠️ MUST COMPLETE BEFORE 3.3
+**CRITICAL: These tests MUST be written and MUST FAIL before ANY implementation**
+- [ ] T004 [P] Contract test POST /api/users in tests/contract/test_users_post.py
+- [ ] T005 [P] Contract test GET /api/users/{id} in tests/contract/test_users_get.py
+- [ ] T006 [P] Integration test user registration in tests/integration/test_registration.py
+- [ ] T007 [P] Integration test auth flow in tests/integration/test_auth.py
 
-## Phase 3.3: 핵심 데이터 분석 구현 (데이터 분석 테스트 실패 후에만)
-- [ ] T010 [P] 데이터 로딩 및 전처리 모듈 in src/data/preprocessing.py
-- [ ] T011 [P] 특성 엔지니어링 파이프라인 in src/features/feature_engineering.py
-- [ ] T012 [P] 베이스라인 모델 구현 in src/models/baseline_model.py
-- [ ] T013 고급 모델 구현 in src/models/advanced_models.py
-- [ ] T014 교차검증 및 평가 in src/evaluation/cv_evaluation.py
-- [ ] T015 모델 성능 비교 및 선택 in src/evaluation/model_selection.py
-- [ ] T016 실험 로깅 및 추적 in src/utils/experiment_tracking.py
+## Phase 3.3: Core Implementation (ONLY after tests are failing)
+- [ ] T008 [P] User model in src/models/user.py
+- [ ] T009 [P] UserService CRUD in src/services/user_service.py
+- [ ] T010 [P] CLI --create-user in src/cli/user_commands.py
+- [ ] T011 POST /api/users endpoint
+- [ ] T012 GET /api/users/{id} endpoint
+- [ ] T013 Input validation
+- [ ] T014 Error handling and logging
 
-## Phase 3.4: 분석 통합 및 최적화
-- [ ] T017 하이퍼파라미터 튜닝 파이프라인 in src/optimization/hyperparameter_tuning.py
-- [ ] T018 앙상블 모델 구현 in src/models/ensemble_models.py
-- [ ] T019 결과 시각화 및 해석 in src/visualization/results_viz.py
-- [ ] T020 모델 해석 가능성 분석 in src/interpretation/model_interpretation.py
+## Phase 3.4: Integration
+- [ ] T015 Connect UserService to DB
+- [ ] T016 Auth middleware
+- [ ] T017 Request/response logging
+- [ ] T018 CORS and security headers
 
-## Phase 3.5: 문서화 및 마무리
-- [ ] T021 [P] 분석 결과 문서화 in answers/chapter_XX_results.md
-- [ ] T022 모델 성능 벤치마킹 및 검증
-- [ ] T023 [P] 학습 인사이트 문서화 in answers/chapter_XX_learnings.md
-- [ ] T024 코드 정리 및 주석 개선
-- [ ] T025 재현성 검증 및 최종 제출
+## Phase 3.5: Polish
+- [ ] T019 [P] Unit tests for validation in tests/unit/test_validation.py
+- [ ] T020 Performance tests (<200ms)
+- [ ] T021 [P] Update docs/api.md
+- [ ] T022 Remove duplication
+- [ ] T023 Run manual-testing.md
 
 ## Dependencies
-- Tests (T006-T009) before implementation (T010-T016)
-- T010 blocks T011, T017
-- T018 blocks T020
-- Implementation before polish (T021-T025)
+- Tests (T004-T007) before implementation (T008-T014)
+- T008 blocks T009, T015
+- T016 blocks T018
+- Implementation before polish (T019-T023)
 
 ## Parallel Example
 ```
-# Launch T006-T009 together:
-Task: "데이터 로딩 및 전처리 테스트 in tests/test_data_loading.py"
-Task: "특성 엔지니어링 검증 테스트 in tests/test_feature_engineering.py"
-Task: "모델 학습 파이프라인 테스트 in tests/test_model_training.py"
-Task: "성능 평가 및 검증 테스트 in tests/test_evaluation.py"
+# Launch T004-T007 together:
+Task: "Contract test POST /api/users in tests/contract/test_users_post.py"
+Task: "Contract test GET /api/users/{id} in tests/contract/test_users_get.py"
+Task: "Integration test registration in tests/integration/test_registration.py"
+Task: "Integration test auth in tests/integration/test_auth.py"
 ```
 
 ## Notes
@@ -98,6 +96,13 @@ Task: "성능 평가 및 검증 테스트 in tests/test_evaluation.py"
 - Verify tests fail before implementing
 - Commit after each task
 - Avoid: vague tasks, same file conflicts
+
+**Constitutional Compliance for Analysis Tasks:**
+- Each task should contribute to notebook development (Principle I)
+- Documentation tasks must include educational explanations (Principle II)
+- Modeling tasks must track performance metrics (Principle III)
+- Research tasks must explore recent techniques (Principle IV)
+- All tasks must include reflection/improvement steps (Principle V)
 
 ## Task Generation Rules
 *Applied during main() execution*
