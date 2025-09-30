@@ -1,0 +1,131 @@
+# Contract: Metrics Calculator Interface
+# Feature: 002-logisticregression-qda-svc
+# Purpose: Define expected behavior for calculating classification performance metrics
+
+contract_name: MetricsCalculator
+version: 1.0.0
+description: Calculate standard classification metrics with weighted averaging for multi-class support
+
+interface:
+  function_name: calculate_classification_metrics
+
+  inputs:
+    y_true:
+      type: numpy.ndarray or pandas.Series
+      description: Ground truth class labels
+      constraints:
+        - shape: (n_samples,)
+        - Must contain only valid class labels
+        - No NaN values
+
+    y_pred:
+      type: numpy.ndarray or pandas.Series
+      description: Predicted class labels from model
+      constraints:
+        - shape: (n_samples,)
+        - Same length as y_true
+        - Labels must be subset of y_true labels
+
+  outputs:
+    metrics:
+      type: PerformanceMetrics
+      description: Four standard classification metrics
+      fields:
+        accuracy:
+          type: float
+          range: [0.0, 1.0]
+          calculation: (TP + TN) / (TP + TN + FP + FN)
+          description: Proportion of correct predictions
+
+        precision:
+          type: float
+          range: [0.0, 1.0]
+          calculation: weighted_average(TP / (TP + FP) per class)
+          description: Weighted precision across all classes
+
+        recall:
+          type: float
+          range: [0.0, 1.0]
+          calculation: weighted_average(TP / (TP + FN) per class)
+          description: Weighted recall across all classes
+
+        f1_score:
+          type: float
+          range: [0.0, 1.0]
+          calculation: weighted_average(2 * precision * recall / (precision + recall) per class)
+          description: Weighted F1-score across all classes
+
+behavior:
+  calculation_method:
+    - Use sklearn.metrics functions
+    - Set average='weighted' for multi-class metrics
+    - Set zero_division=0 to handle edge cases
+
+  edge_cases:
+    empty_predictions:
+      condition: len(y_pred) == 0
+      handling: Raise ValueError("Empty predictions array")
+
+    length_mismatch:
+      condition: len(y_true) != len(y_pred)
+      handling: Raise ValueError("Length mismatch between y_true and y_pred")
+
+    unknown_labels:
+      condition: y_pred contains labels not in y_true
+      handling: Raise ValueError("Predicted labels not in training set")
+
+    perfect_prediction:
+      condition: y_true == y_pred for all samples
+      result: All metrics = 1.0
+
+    random_prediction:
+      condition: No pattern in predictions
+      result: Metrics reflect random performance
+
+performance_requirements:
+  - Must complete in < 100ms for typical datasets (n < 100k)
+  - Memory efficient: O(n) space complexity
+  - Numerically stable for edge cases (very small class counts)
+
+testing_requirements:
+  - Test with binary classification
+  - Test with multi-class classification (3+ classes)
+  - Test with imbalanced classes
+  - Test with perfect predictions (all metrics = 1.0)
+  - Test with worst predictions (all metrics = 0.0)
+  - Test weighted vs unweighted averaging
+  - Verify zero_division handling
+
+implementation_notes:
+  sklearn_functions:
+    - accuracy_score(y_true, y_pred)
+    - precision_score(y_true, y_pred, average='weighted', zero_division=0)
+    - recall_score(y_true, y_pred, average='weighted', zero_division=0)
+    - f1_score(y_true, y_pred, average='weighted', zero_division=0)
+
+  averaging_strategy:
+    weighted:
+      description: Calculate metric for each class, average by class frequency
+      formula: sum(metric_per_class * class_count) / total_samples
+      justification: Accounts for class imbalance, appropriate for this competition
+
+example_usage: |
+  import numpy as np
+
+  # Binary classification example
+  y_true = np.array([0, 1, 0, 1, 1, 0])
+  y_pred = np.array([0, 1, 0, 1, 0, 0])
+
+  metrics = calculate_classification_metrics(y_true, y_pred)
+
+  print(f"Accuracy: {metrics.accuracy:.3f}")
+  print(f"Precision: {metrics.precision:.3f}")
+  print(f"Recall: {metrics.recall:.3f}")
+  print(f"F1-Score: {metrics.f1_score:.3f}")
+
+  # Multi-class example
+  y_true = np.array([0, 1, 2, 0, 1, 2, 2])
+  y_pred = np.array([0, 1, 2, 0, 2, 2, 1])
+
+  metrics = calculate_classification_metrics(y_true, y_pred)
+  # Uses weighted averaging automatically

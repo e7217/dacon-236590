@@ -1,0 +1,147 @@
+# Contract: Model Evaluation Interface
+# Feature: 002-logisticregression-qda-svc
+# Purpose: Define expected behavior for evaluating a single model with cross-validation
+
+contract_name: ModelEvaluation
+version: 1.0.0
+description: Interface for training and evaluating a classification model using stratified k-fold cross-validation
+
+interface:
+  function_name: evaluate_model
+
+  inputs:
+    model:
+      type: sklearn.base.BaseEstimator
+      description: Unfitted sklearn-compatible model instance
+      constraints:
+        - Must implement fit() and predict() methods
+        - Must be one of: LogisticRegression, QuadraticDiscriminantAnalysis, SVC, RandomForestClassifier, DecisionTreeClassifier
+
+    X:
+      type: numpy.ndarray or pandas.DataFrame
+      description: Feature matrix for training and evaluation
+      constraints:
+        - shape: (n_samples, n_features)
+        - n_samples > n_folds * min_class_count
+        - No NaN or inf values
+
+    y:
+      type: numpy.ndarray or pandas.Series
+      description: Target variable with class labels
+      constraints:
+        - shape: (n_samples,)
+        - Must contain at least 2 unique classes
+        - Each class must have at least n_folds samples
+
+    cv_strategy:
+      type: sklearn.model_selection.StratifiedKFold
+      description: Cross-validation splitting strategy
+      constraints:
+        - n_splits >= 5
+        - shuffle = True
+        - random_state = 42
+
+  outputs:
+    result:
+      type: ModelEvaluationResult
+      description: Complete evaluation results including metrics and timing
+      fields:
+        model_name:
+          type: str
+          example: "LogisticRegression"
+
+        model_instance:
+          type: sklearn.base.BaseEstimator
+          description: Fitted model from last fold
+
+        mean_metrics:
+          type: PerformanceMetrics
+          fields:
+            accuracy: {type: float, range: [0.0, 1.0]}
+            precision: {type: float, range: [0.0, 1.0]}
+            recall: {type: float, range: [0.0, 1.0]}
+            f1_score: {type: float, range: [0.0, 1.0]}
+
+        std_metrics:
+          type: PerformanceMetrics
+          description: Standard deviation of metrics across folds
+          constraints:
+            - All values >= 0.0
+
+        fold_scores:
+          type: List[PerformanceMetrics]
+          length: n_folds
+          description: Per-fold metric results
+
+        training_time_seconds:
+          type: float
+          constraints:
+            - value > 0.0 if training succeeded
+            - NaN if training failed
+
+        training_failed:
+          type: bool
+          description: True if model training encountered errors
+
+        failure_message:
+          type: str or None
+          description: Error message if training_failed=True
+
+behavior:
+  success_path:
+    - Validate inputs (X, y shapes match, no NaN values)
+    - Initialize result tracking
+    - For each fold in cv_strategy.split(X, y):
+        - Split data into train/test sets
+        - Train model on training set
+        - Predict on test set
+        - Calculate all 4 metrics (weighted averaging)
+        - Record metrics and timing
+    - Aggregate fold metrics (mean and std)
+    - Return ModelEvaluationResult
+
+  failure_paths:
+    model_training_failure:
+      condition: Model.fit() raises exception
+      handling:
+        - Catch exception
+        - Set training_failed=True
+        - Set failure_message=str(exception)
+        - Set all metrics to NaN
+        - Return result (don't raise)
+
+    invalid_predictions:
+      condition: Model.predict() returns unexpected values
+      handling:
+        - Log warning
+        - Set metrics to NaN for that fold
+        - Continue with remaining folds
+
+    insufficient_samples:
+      condition: Fold has too few samples for a class
+      handling:
+        - Raise ValueError immediately (fatal error)
+
+performance_requirements:
+  - Training time recorded with millisecond precision
+  - Memory efficient: don't store all fold predictions
+  - Must complete within reasonable time (< 5 minutes per model)
+
+testing_requirements:
+  - Test with all 5 model types
+  - Test with imbalanced dataset
+  - Test model training failure handling
+  - Test cross-validation maintains stratification
+  - Verify metrics are weighted averages
+
+example_usage: |
+  from sklearn.linear_model import LogisticRegression
+  from sklearn.model_selection import StratifiedKFold
+
+  model = LogisticRegression(random_state=42)
+  cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+
+  result = evaluate_model(model, X_train, y_train, cv)
+
+  print(f"{result.model_name}: F1={result.mean_metrics.f1_score:.3f} ± {result.std_metrics.f1_score:.3f}")
+  print(f"Training time: {result.training_time_seconds:.2f}s")

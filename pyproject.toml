@@ -14,6 +14,8 @@ dependencies = [
     # 기본 머신러닝
     "scikit-learn>=1.3.0",
     "joblib>=1.3.0",
+    # GPU 가속 머신러닝 (RAPIDS)
+    "cuml-cu12>=24.0.0",
     # 고급 Gradient Boosting 모델들
     "xgboost>=2.0.0",
     "lightgbm>=4.1.0",

@@ -1,0 +1,8 @@
+Model,Type,CV_F1_Score,Prediction_File
+LogisticRegression,Single,0.4987,submission_LogisticRegression.csv
+QuadraticDiscriminantAnalysis,Single,0.8782,submission_QuadraticDiscriminantAnalysis.csv
+SVC,Single,0.3277,submission_SVC.csv
+RandomForestClassifier,Single,0.7349,submission_RandomForestClassifier.csv
+DecisionTreeClassifier,Single,0.7105,submission_DecisionTreeClassifier.csv
+Ensemble_HardVoting,Ensemble,N/A (trained on full data),submission_Ensemble_HardVoting.csv
+Ensemble_SoftVoting,Ensemble,N/A (trained on full data),submission_Ensemble_SoftVoting.csv
