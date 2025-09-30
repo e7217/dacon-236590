@@ -1,0 +1,185 @@
+# Contract: Comparison Report Interface
+# Feature: 002-logisticregression-qda-svc
+# Purpose: Define expected behavior for generating model comparison report
+
+contract_name: ComparisonReport
+version: 1.0.0
+description: Aggregate all model evaluation results into comprehensive comparison report with rankings and visualizations
+
+interface:
+  function_name: generate_comparison_report
+
+  inputs:
+    evaluation_results:
+      type: List[ModelEvaluationResult]
+      description: Complete evaluation results for all models
+      constraints:
+        - length: 5 (one per model type)
+        - All must have same cv_strategy configuration
+        - May include models with training_failed=True
+
+  outputs:
+    report:
+      type: ComparisonReport
+      description: Complete comparison with rankings and visualizations
+      fields:
+        all_results:
+          type: List[ModelEvaluationResult]
+          description: Input results preserved
+
+        rankings_by_f1:
+          type: List[Tuple[str, float]]
+          description: Models ranked by mean F1-score (descending)
+          example: [("RandomForest", 0.87), ("SVC", 0.85), ...]
+          constraints:
+            - Excludes models with NaN F1-score
+            - Sorted descending by F1-score
+
+        rankings_by_accuracy:
+          type: List[Tuple[str, float]]
+          description: Models ranked by mean accuracy (descending)
+          constraints:
+            - Excludes models with NaN accuracy
+            - Sorted descending by accuracy
+
+        best_model_name:
+          type: str
+          description: Name of top model by F1-score
+          example: "RandomForestClassifier"
+
+        comparison_table:
+          type: pandas.DataFrame
+          description: All metrics in tabular format
+          columns:
+            - Model: str (model name)
+            - Accuracy_Mean: float
+            - Accuracy_Std: float
+            - Precision_Mean: float
+            - Precision_Std: float
+            - Recall_Mean: float
+            - Recall_Std: float
+            - F1_Mean: float
+            - F1_Std: float
+            - Training_Time: float
+            - Status: str ("Success" or "Failed")
+          constraints:
+            - Sorted by F1_Mean descending
+            - Failed models at bottom with NaN metrics
+
+        visualization_paths:
+          type: Dict[str, str]
+          description: Paths to generated visualization files
+          keys:
+            - metrics_bar_chart: Path to grouped bar chart of all metrics
+            - f1_box_plot: Path to box plot of F1-score distributions
+          optional_keys:
+            - training_time_chart: Path to training time comparison
+
+        generated_at:
+          type: datetime
+          description: Report generation timestamp
+          format: ISO 8601
+
+behavior:
+  report_generation:
+    - Validate all inputs have same cv configuration
+    - Extract metrics from all results
+    - Rank models by F1-score (primary) and accuracy (secondary)
+    - Identify best performing model
+    - Create comparison DataFrame
+    - Generate visualizations
+    - Return complete report
+
+  visualization_generation:
+    metrics_bar_chart:
+      type: Grouped bar chart
+      x_axis: Model names
+      y_axis: Metric values (0.0 to 1.0)
+      groups: [Accuracy, Precision, Recall, F1]
+      requirements:
+        - Clear legend
+        - Grid for readability
+        - Sorted by F1-score
+        - Failed models marked distinctly
+
+    f1_box_plot:
+      type: Box plot
+      x_axis: Model names
+      y_axis: F1-score distribution
+      data: fold_scores from each model
+      requirements:
+        - Shows median, quartiles, outliers
+        - Sorted by median F1-score
+        - Failed models excluded
+
+  edge_cases:
+    all_models_failed:
+      condition: All training_failed=True
+      handling:
+        - rankings lists are empty
+        - best_model_name = None
+        - comparison_table shows all NaN
+        - Skip visualizations
+        - Log warning
+
+    single_model_succeeded:
+      condition: Only one model with training_failed=False
+      handling:
+        - That model is best_model_name
+        - rankings contain single entry
+        - Visualizations still generated
+
+    tie_in_f1_scores:
+      condition: Multiple models have same F1-score
+      tie_breaking:
+        1. Higher accuracy
+        2. Lower training time
+        3. Alphabetical model name
+
+performance_requirements:
+  - Report generation < 5 seconds
+  - Visualizations saved to disk
+  - DataFrame export to CSV option
+
+testing_requirements:
+  - Test with all models successful
+  - Test with some models failed
+  - Test with all models failed
+  - Test F1-score tie breaking
+  - Verify rankings correctness
+  - Verify visualization generation
+  - Test with identical metrics across models
+
+educational_components:
+  markdown_summary:
+    description: Generate markdown text explaining results
+    includes:
+      - Best model identification and justification
+      - Key performance differences
+      - Training time analysis
+      - Recommendations for next steps
+
+  visual_clarity:
+    requirements:
+      - Publication-quality figures
+      - Clear axis labels and titles
+      - Colorblind-friendly palette
+      - Appropriate font sizes
+
+example_usage: |
+  # After evaluating all 5 models
+  all_results = [lr_result, qda_result, svc_result, rf_result, dt_result]
+
+  report = generate_comparison_report(all_results)
+
+  # Display comparison table
+  print(report.comparison_table)
+
+  # Show best model
+  print(f"Best model: {report.best_model_name}")
+  print(f"F1-score: {report.rankings_by_f1[0][1]:.3f}")
+
+  # Access visualizations
+  from IPython.display import Image, display
+  display(Image(report.visualization_paths['metrics_bar_chart']))
+  display(Image(report.visualization_paths['f1_box_plot']))
