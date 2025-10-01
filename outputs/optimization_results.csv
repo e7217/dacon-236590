@@ -1,0 +1,4 @@
+Model,Baseline F1,Baseline Std,Optimized F1,Optimized Std,Improvement,Improvement %,Time (min),Trials,Best Params
+RandomForest,0.7349,0.0014,0.7718300526503901,0.0049608702698225446,0.036930052650390066,3.6930052650390066,11.273334419727325,50,"{""max_features_type"": ""float"", ""n_estimators"": 211, ""max_depth"": 30, ""min_samples_split"": 18, ""min_samples_leaf"": 2, ""max_features_ratio"": 0.9904260876296729, ""bootstrap"": true}"
+QDA,0.8782,0.0029,0.7552855121366681,0.002580933057685655,-0.12291448786333192,-12.291448786333191,0.27283796469370525,50,"{""reg_param"": 0.00010776593031083955, ""store_covariance"": true, ""tol"": 0.00032210277522493096}"
+DecisionTree,0.7105,0.006,0.7143659168606741,0.008205077326273732,0.003865916860674057,0.3865916860674057,6.775441459814707,50,"{""max_features_type"": ""none"", ""max_depth"": 27, ""min_samples_split"": 15, ""min_samples_leaf"": 8, ""criterion"": ""gini"", ""splitter"": ""best""}"
